@@ -1,0 +1,311 @@
+function main(workbook: ExcelScript.Workbook) {
+    // Add a new worksheet with name "(AUTO) Consolidado total"
+    let _AUTO__Consolidado_total = workbook.addWorksheet("(AUTO) Consolidado total");
+
+    // Set range A1:A2 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A1:A2").setValues([["Appliance"], ["Status"]]);
+    // Set range A4:A7 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A4:A7").setValues([["Etiquetas"], ["Encontrado"], ["No Encontrado"], ["Total generado"]]);
+    // Set range B4:C4 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B4:C4").setValues([["Cuenta Tenable", "Visibilidad"]]);
+
+    // Paste to range A11 on _AUTO__Consolidado_total from range A1:C7 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A11").copyFrom(_AUTO__Consolidado_total.getRange("A1:C7"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range A21 on _AUTO__Consolidado_total from range A1:C7 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A21").copyFrom(_AUTO__Consolidado_total.getRange("A1:C7"), ExcelScript.RangeCopyType.all, false, false);
+    // Auto fit the columns of range B:B on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B:B").getFormat().autofitColumns();
+    // Set range B14 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B14").setValue("Cuenta Vicarius");
+    // Set range B24 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B24").setValue("Cuenta TrendMicro");
+    // Auto fit the columns of range B:B on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B:B").getFormat().autofitColumns();
+    // Set range B1:B2 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B1:B2").setValues([["TRUE"], ["Running"]]);
+
+    //Paste to range B11 on _AUTO__Consolidado_total from range B1:B2 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B11").copyFrom(_AUTO__Consolidado_total.getRange("B1:B2"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range B21 on _AUTO__Consolidado_total from range B1:B2 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B21").copyFrom(_AUTO__Consolidado_total.getRange("B1:B2"), ExcelScript.RangeCopyType.all, false, false);
+    
+	// Set range B5:B7 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B5:B7").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado total'!B$1,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado total'!B$2,'Cruce Servidores'!$F:$F,'(AUTO) Consolidado total'!A5)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado total'!B$1,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado total'!B$2,'Cruce Servidores'!$F:$F,'(AUTO) Consolidado total'!A6)`], [`=SUM(B5:B6)`]]);
+    // Set range C5 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("C5").setFormulaLocal(`=IFERROR(B5/B7,0)`)
+	
+    // Set range B15:B17 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B15:B17").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado total'!B$11,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado total'!B$12,'Cruce Servidores'!$G:$G,'(AUTO) Consolidado total'!A15)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado total'!B$11,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado total'!B$12,'Cruce Servidores'!$G:$G,'(AUTO) Consolidado total'!A16)`], [`=SUM(B15:B16)`]]);
+    // Set range C15 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("C15").setFormulaLocal(`=IFERROR(B15/B17,0)`)
+	
+    // Set range B25:B27 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B25:B27").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado total'!B$21,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado total'!B$22,'Cruce Servidores'!$H:$H,'(AUTO) Consolidado total'!A25)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado total'!B$21,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado total'!B$22,'Cruce Servidores'!$H:$H,'(AUTO) Consolidado total'!A26)`], [`=SUM(B25:B26)`]]);
+    // Set range C25 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("C25").setFormulaLocal(`=IFERROR(B25/B27,0)`)
+	
+    // Auto fit the columns of range A:A on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A:A").getFormat().autofitColumns();
+    // Set fill color to #DDEBF7 for range A1:B2 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A1:B2").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A4:A7 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A4:A7").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B4:C4 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B4:C4").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A11:B12 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A11:B12").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A14:A17 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A14:A17").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B14:C14 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B14:C14").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A21:B22 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A21:B22").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A24:A27 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("A24:A27").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B24:C24 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("B24:C24").getFormat().getFill().setColor("#DDEBF7");
+    
+	// Paste to range F1 on _AUTO__Consolidado_total from range A1:C27 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("F1").copyFrom(_AUTO__Consolidado_total.getRange("A1:C27"), ExcelScript.RangeCopyType.all, false, false);
+    // Auto fit the columns of range G:G on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("G:G").getFormat().autofitColumns();
+    // Set range G1 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("G1").setValue("FALSE");
+    // Paste to range G11 on _AUTO__Consolidado_total from range G1 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("G11").copyFrom(_AUTO__Consolidado_total.getRange("G1"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range G21 on _AUTO__Consolidado_total from range G1 on _AUTO__Consolidado_total
+    _AUTO__Consolidado_total.getRange("G21").copyFrom(_AUTO__Consolidado_total.getRange("G1"), ExcelScript.RangeCopyType.all, false, false);
+    
+	// Add a new worksheet
+    let hoja33 = workbook.addWorksheet("(AUTO) Consolidado azure");
+    // Set range A1:A3 on hoja33
+    hoja33.getRange("A1:A3").setValues([["Appliance"], ["Status"], ["Cloud"]]);
+    // Set range A5:A8 on hoja33
+    hoja33.getRange("A5:A8").setValues([["Etiquetas"], ["Encontrado"], ["No Encontrado"], ["Total generado"]]);
+    // Set range B5:C5 on hoja33
+    hoja33.getRange("B5:C5").setValues([["Cuenta de Tenable", "Visibilidad"]]);
+    // Paste to range A12 on hoja33 from range A1:C8 on hoja33
+    hoja33.getRange("A12").copyFrom(hoja33.getRange("A1:C8"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range A23 on hoja33 from range A1:C8 on hoja33
+    hoja33.getRange("A23").copyFrom(hoja33.getRange("A1:C8"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range F1 on hoja33 from range A1:C30 on hoja33
+    hoja33.getRange("F1").copyFrom(hoja33.getRange("A1:C30"), ExcelScript.RangeCopyType.all, false, false);
+    // Auto fit the columns of range B:B on hoja33
+    hoja33.getRange("B:B").getFormat().autofitColumns();
+    // Auto fit the columns of range G:G on hoja33
+    hoja33.getRange("G:G").getFormat().autofitColumns();
+    // Auto fit the columns of range F:F on hoja33
+    hoja33.getRange("F:F").getFormat().autofitColumns();
+    // Auto fit the columns of range A:A on hoja33
+    hoja33.getRange("A:A").getFormat().autofitColumns();
+	
+    // Set range B16 on hoja33
+    hoja33.getRange("B16").setValue("Cuenta de Vicaruis");
+    // Set range B27 on hoja33
+    hoja33.getRange("B27").setValue("Cuenta de TrendMicro");
+    // Set range G16 on hoja33
+    hoja33.getRange("G16").setValue("Cuenta de Vicarius");
+    // Set range G27 on hoja33
+    hoja33.getRange("G27").setValue("Cuenta de TrendMicro");
+    // Auto fit the columns of range G:G on hoja33
+    hoja33.getRange("G:G").getFormat().autofitColumns();
+	
+    // Set range B1:B3 on hoja33
+    hoja33.getRange("B1:B3").setValues([["TRUE"], ["Running"], ["TRUE"]]);
+    // Paste to range B12 on hoja33 from range B1:B3 on hoja33
+    hoja33.getRange("B12").copyFrom(hoja33.getRange("B1:B3"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range B23 on hoja33 from range B1:B3 on hoja33
+    hoja33.getRange("B23").copyFrom(hoja33.getRange("B1:B3"), ExcelScript.RangeCopyType.all, false, false);
+    // Set range G1:G3 on hoja33
+    hoja33.getRange("G1:G3").setValues([["FALSE"], ["Running"], ["TRUE"]]);
+    // Paste to range G12 on hoja33 from range G1:G3 on hoja33
+    hoja33.getRange("G12").copyFrom(hoja33.getRange("G1:G3"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range G23 on hoja33 from range G1:G3 on hoja33
+    hoja33.getRange("G23").copyFrom(hoja33.getRange("G1:G3"), ExcelScript.RangeCopyType.all, false, false);
+    // Auto fit the columns of range B:B on hoja33
+    hoja33.getRange("B:B").getFormat().autofitColumns();
+    
+		// Set range B6:B8 on (AUTO) Consolidado azure
+		hoja33.getRange("B6:B8").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado azure'!B$1,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado azure'!B$3,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado azure'!B$2,'Cruce Servidores'!$F:$F,'(AUTO) Consolidado azure'!A6)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado azure'!B$1,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado azure'!B$3,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado azure'!B$2,'Cruce Servidores'!$F:$F,'(AUTO) Consolidado azure'!A7)`], [`=SUM(B6:B7)`]]);
+		// Set range C6 on (AUTO) Consolidado azure
+		hoja33.getRange("C6").setFormulaLocal(`=IFERROR(B6/B8,0)`);
+		
+		// Set range B17:B19 on (AUTO) Consolidado azure
+		hoja33.getRange("B17:B19").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado azure'!B$12,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado azure'!B$14,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado azure'!B$13,'Cruce Servidores'!$G:$G,'(AUTO) Consolidado azure'!A17)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado azure'!B$12,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado azure'!B$14,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado azure'!B$13,'Cruce Servidores'!$G:$G,'(AUTO) Consolidado azure'!A18)`], [`=SUM(B17:B18)`]]);
+		// Set range C17 on (AUTO) Consolidado azure
+		hoja33.getRange("C17").setFormulaLocal(`=IFERROR(B17/B19,0)`);
+
+		// Set range B28:B30 on (AUTO) Consolidado azure
+		hoja33.getRange("B28:B30").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado azure'!B$23,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado azure'!B$25,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado azure'!B$24,'Cruce Servidores'!$H:$H,'(AUTO) Consolidado azure'!A28)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado azure'!B$23,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado azure'!B$25,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado azure'!B$24,'Cruce Servidores'!$H:$H,'(AUTO) Consolidado azure'!A29)`], [`=SUM(B28:B29)`]]);
+		// Set range C28 on (AUTO) Consolidado azure
+		hoja33.getRange("C28").setFormulaLocal(`=IFERROR(B28/B30,0)`);
+    
+    // Set fill color to #DDEBF7 for range A1:B3 on hoja33
+    hoja33.getRange("A1:B3").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A5:A8 on hoja33
+    hoja33.getRange("A5:A8").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B5:C5 on hoja33
+    hoja33.getRange("B5:C5").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A12:B14 on hoja33
+    hoja33.getRange("A12:B14").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A16:A19 on hoja33
+    hoja33.getRange("A16:A19").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B16:C16 on hoja33
+    hoja33.getRange("B16:C16").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A23:B25 on hoja33
+    hoja33.getRange("A23:B25").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A27:A30 on hoja33
+    hoja33.getRange("A27:A30").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B27:C27 on hoja33
+    hoja33.getRange("B27:C27").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F1:G3 on hoja33
+    hoja33.getRange("F1:G3").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F5:F8 on hoja33
+    hoja33.getRange("F5:F8").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range G5:H5 on hoja33
+    hoja33.getRange("G5:H5").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F12:G14 on hoja33
+    hoja33.getRange("F12:G14").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F16:F19 on hoja33
+    hoja33.getRange("F16:F19").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range G16:H16 on hoja33
+    hoja33.getRange("G16:H16").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F23:G25 on hoja33
+    hoja33.getRange("F23:G25").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F27:F30 on hoja33
+    hoja33.getRange("F27:F30").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range G27:H27 on hoja33
+    hoja33.getRange("G27:H27").getFormat().getFill().setColor("#DDEBF7");
+    
+	// Paste to range F1 on hoja33 from range A1:C27 on hoja33
+	hoja33.getRange("F1").copyFrom(hoja33.getRange("A1:C30"), ExcelScript.RangeCopyType.all, false, false);
+	// Auto fit the columns of range G:G on hoja33
+	hoja33.getRange("G:G").getFormat().autofitColumns();
+	// Set range G1 on hoja33
+	hoja33.getRange("G1").setValue("FALSE");
+	// Paste to range G11 on hoja33 from range G1 on hoja33
+	hoja33.getRange("G12").copyFrom(hoja33.getRange("G1"), ExcelScript.RangeCopyType.all, false, false);
+	// Paste to range G21 on hoja33 from range G1 on hoja33
+	hoja33.getRange("G23").copyFrom(hoja33.getRange("G1"), ExcelScript.RangeCopyType.all, false, false);
+	
+	
+	// Rename worksheet to "(AUTO) Consolidado azure"
+    hoja33.setName("(AUTO) Consolidado azure");
+    
+	
+	// Add a new worksheet
+    let hoja34 = workbook.addWorksheet("(AUTO) Consolidado OnPrem");
+    // Set range A1:A3 on hoja34
+    hoja34.getRange("A1:A3").setValues([["Appliance"], ["Status"], ["Cloud"]]);
+    // Set range A5:A8 on hoja34
+    hoja34.getRange("A5:A8").setValues([["Etiquetas"], ["Encontrado"], ["No Encontrado"], ["Total generado"]]);
+    // Set range B5:C5 on hoja34
+    hoja34.getRange("B5:C5").setValues([["Cuenta de Tenable", "Visibilidad"]]);
+    // Paste to range A12 on hoja34 from range A1:C8 on hoja34
+    hoja34.getRange("A12").copyFrom(hoja34.getRange("A1:C8"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range A23 on hoja34 from range A1:C8 on hoja34
+    hoja34.getRange("A23").copyFrom(hoja34.getRange("A1:C8"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range F1 on hoja34 from range A1:C30 on hoja34
+    hoja34.getRange("F1").copyFrom(hoja34.getRange("A1:C30"), ExcelScript.RangeCopyType.all, false, false);
+    // Auto fit the columns of range B:B on hoja34
+    hoja34.getRange("B:B").getFormat().autofitColumns();
+    // Auto fit the columns of range G:G on hoja34
+    hoja34.getRange("G:G").getFormat().autofitColumns();
+    // Auto fit the columns of range F:F on hoja34
+    hoja34.getRange("F:F").getFormat().autofitColumns();
+    // Auto fit the columns of range A:A on hoja34
+    hoja34.getRange("A:A").getFormat().autofitColumns();
+	
+    // Set range B16 on hoja34
+    hoja34.getRange("B16").setValue("Cuenta de Vicaruis");
+    // Set range B27 on hoja34
+    hoja34.getRange("B27").setValue("Cuenta de TrendMicro");
+    // Set range G16 on hoja34
+    hoja34.getRange("G16").setValue("Cuenta de Vicarius");
+    // Set range G27 on hoja34
+    hoja34.getRange("G27").setValue("Cuenta de TrendMicro");
+    // Auto fit the columns of range G:G on hoja34
+    hoja34.getRange("G:G").getFormat().autofitColumns();
+	
+    // Set range B1:B3 on hoja34
+    hoja34.getRange("B1:B3").setValues([["TRUE"], ["Running"], ["FALSE"]]);
+    // Paste to range B12 on hoja34 from range B1:B3 on hoja34
+    hoja34.getRange("B12").copyFrom(hoja34.getRange("B1:B3"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range B23 on hoja34 from range B1:B3 on hoja34
+    hoja34.getRange("B23").copyFrom(hoja34.getRange("B1:B3"), ExcelScript.RangeCopyType.all, false, false);
+    // Set range G1:G3 on hoja34
+    hoja34.getRange("G1:G3").setValues([["FALSE"], ["Running"], ["FALSE"]]);
+    // Paste to range G12 on hoja34 from range G1:G3 on hoja34
+    hoja34.getRange("G12").copyFrom(hoja34.getRange("G1:G3"), ExcelScript.RangeCopyType.all, false, false);
+    // Paste to range G23 on hoja34 from range G1:G3 on hoja34
+    hoja34.getRange("G23").copyFrom(hoja34.getRange("G1:G3"), ExcelScript.RangeCopyType.all, false, false);
+    // Auto fit the columns of range B:B on hoja34
+    hoja34.getRange("B:B").getFormat().autofitColumns();
+    
+		// Set range B6:B8 on (AUTO) Consolidado OnPrem
+		hoja34.getRange("B6:B8").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado OnPrem'!B$1,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado OnPrem'!B$3,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado OnPrem'!B$2,'Cruce Servidores'!$F:$F,'(AUTO) Consolidado OnPrem'!A6)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado OnPrem'!B$1,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado OnPrem'!B$3,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado OnPrem'!B$2,'Cruce Servidores'!$F:$F,'(AUTO) Consolidado OnPrem'!A7)`], [`=SUM(B6:B7)`]]);
+		// Set range C6 on (AUTO) Consolidado OnPrem
+		hoja34.getRange("C6").setFormulaLocal(`=IFERROR(B6/B8,0)`);
+		
+		// Set range B17:B19 on (AUTO) Consolidado OnPrem
+		hoja34.getRange("B17:B19").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado OnPrem'!B$12,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado OnPrem'!B$14,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado OnPrem'!B$13,'Cruce Servidores'!$G:$G,'(AUTO) Consolidado OnPrem'!A17)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado OnPrem'!B$12,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado OnPrem'!B$14,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado OnPrem'!B$13,'Cruce Servidores'!$G:$G,'(AUTO) Consolidado OnPrem'!A18)`], [`=SUM(B17:B18)`]]);
+		// Set range C17 on (AUTO) Consolidado OnPrem
+		hoja34.getRange("C17").setFormulaLocal(`=IFERROR(B17/B19,0)`);
+
+		// Set range B28:B30 on (AUTO) Consolidado OnPrem
+		hoja34.getRange("B28:B30").setFormulasLocal([[`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado OnPrem'!B$23,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado OnPrem'!B$25,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado OnPrem'!B$24,'Cruce Servidores'!$H:$H,'(AUTO) Consolidado OnPrem'!A28)`], [`=COUNTIFS('Cruce Servidores'!$C:$C,'(AUTO) Consolidado OnPrem'!B$23,'Cruce Servidores'!$D:$D,'(AUTO) Consolidado OnPrem'!B$25,'Cruce Servidores'!$B:$B,'(AUTO) Consolidado OnPrem'!B$24,'Cruce Servidores'!$H:$H,'(AUTO) Consolidado OnPrem'!A29)`], [`=SUM(B28:B29)`]]);
+		// Set range C28 on (AUTO) Consolidado OnPrem
+		hoja34.getRange("C28").setFormulaLocal(`=IFERROR(B28/B30,0)`);
+    
+    // Set fill color to #DDEBF7 for range A1:B3 on hoja34
+    hoja34.getRange("A1:B3").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A5:A8 on hoja34
+    hoja34.getRange("A5:A8").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B5:C5 on hoja34
+    hoja34.getRange("B5:C5").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A12:B14 on hoja34
+    hoja34.getRange("A12:B14").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A16:A19 on hoja34
+    hoja34.getRange("A16:A19").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B16:C16 on hoja34
+    hoja34.getRange("B16:C16").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A23:B25 on hoja34
+    hoja34.getRange("A23:B25").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range A27:A30 on hoja34
+    hoja34.getRange("A27:A30").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range B27:C27 on hoja34
+    hoja34.getRange("B27:C27").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F1:G3 on hoja34
+    hoja34.getRange("F1:G3").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F5:F8 on hoja34
+    hoja34.getRange("F5:F8").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range G5:H5 on hoja34
+    hoja34.getRange("G5:H5").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F12:G14 on hoja34
+    hoja34.getRange("F12:G14").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F16:F19 on hoja34
+    hoja34.getRange("F16:F19").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range G16:H16 on hoja34
+    hoja34.getRange("G16:H16").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F23:G25 on hoja34
+    hoja34.getRange("F23:G25").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range F27:F30 on hoja34
+    hoja34.getRange("F27:F30").getFormat().getFill().setColor("#DDEBF7");
+    // Set fill color to #DDEBF7 for range G27:H27 on hoja34
+    hoja34.getRange("G27:H27").getFormat().getFill().setColor("#DDEBF7");
+    
+	// Paste to range F1 on hoja34 from range A1:C27 on hoja34
+	hoja34.getRange("F1").copyFrom(hoja34.getRange("A1:C30"), ExcelScript.RangeCopyType.all, false, false);
+	// Auto fit the columns of range G:G on hoja34
+	hoja34.getRange("G:G").getFormat().autofitColumns();
+	// Set range G1 on hoja34
+	hoja34.getRange("G1").setValue("FALSE");
+	// Paste to range G11 on hoja34 from range G1 on hoja34
+	hoja34.getRange("G12").copyFrom(hoja34.getRange("G1"), ExcelScript.RangeCopyType.all, false, false);
+	// Paste to range G21 on hoja34 from range G1 on hoja34
+	hoja34.getRange("G23").copyFrom(hoja34.getRange("G1"), ExcelScript.RangeCopyType.all, false, false);
+	
+	
+    // Rename worksheet to "(AUTO) Consolidado OnPrem"
+    hoja34.setName("(AUTO) Consolidado OnPrem");
+}
