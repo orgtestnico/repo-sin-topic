@@ -1,0 +1,10 @@
+
+name: Trigger Security Scan
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  call-security-scan:
+    uses: tu-organizacion/.github-workflows/.github/workflows/reusable-scan.yml@main
