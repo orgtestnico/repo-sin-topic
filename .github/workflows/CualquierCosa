@@ -2,21 +2,6 @@ function main(workbook: ExcelScript.Workbook) {
     // Add a new worksheet with name "(AUTO) Consolidado total"
     let _AUTO__Consolidado_total = workbook.addWorksheet("(AUTO) Consolidado total");
 
-    // Paste to range A11 on _AUTO__Consolidado_total from range A1:C7 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("A11").copyFrom(_AUTO__Consolidado_total.getRange("A1:C7"), ExcelScript.RangeCopyType.all, false, false);
-    // Paste to range A21 on _AUTO__Consolidado_total from range A1:C7 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("A21").copyFrom(_AUTO__Consolidado_total.getRange("A1:C7"), ExcelScript.RangeCopyType.all, false, false);
-    // Auto fit the columns of range B:B on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("B:B").getFormat().autofitColumns();
-    // Set range B14 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("B14").setValue("Cuenta Vicarius");
-    // Set range B24 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("B24").setValue("Cuenta TrendMicro");
-    // Auto fit the columns of range B:B on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("B:B").getFormat().autofitColumns();
-    // Set range B1:B2 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("B1:B2").setValues([["TRUE"], ["Running"]]);
-
     //Paste to range B11 on _AUTO__Consolidado_total from range B1:B2 on _AUTO__Consolidado_total
     _AUTO__Consolidado_total.getRange("B11").copyFrom(_AUTO__Consolidado_total.getRange("B1:B2"), ExcelScript.RangeCopyType.all, false, false);
     // Paste to range B21 on _AUTO__Consolidado_total from range B1:B2 on _AUTO__Consolidado_total
