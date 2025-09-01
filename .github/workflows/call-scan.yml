@@ -7,4 +7,4 @@ on:
 
 jobs:
   call-security-scan:
-    uses: tu-organizacion/.github-workflows/.github/workflows/reusable-scan.yml@main
+    uses: orgtestnico/.github-workflows/.github/workflows/reusable-scan.yml@main
