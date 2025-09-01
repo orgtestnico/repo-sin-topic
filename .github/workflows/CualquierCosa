@@ -2,13 +2,6 @@ function main(workbook: ExcelScript.Workbook) {
     // Add a new worksheet with name "(AUTO) Consolidado total"
     let _AUTO__Consolidado_total = workbook.addWorksheet("(AUTO) Consolidado total");
 
-    // Set range A1:A2 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("A1:A2").setValues([["Appliance"], ["Status"]]);
-    // Set range A4:A7 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("A4:A7").setValues([["Etiquetas"], ["Encontrado"], ["No Encontrado"], ["Total generado"]]);
-    // Set range B4:C4 on _AUTO__Consolidado_total
-    _AUTO__Consolidado_total.getRange("B4:C4").setValues([["Cuenta Tenable", "Visibilidad"]]);
-
     // Paste to range A11 on _AUTO__Consolidado_total from range A1:C7 on _AUTO__Consolidado_total
     _AUTO__Consolidado_total.getRange("A11").copyFrom(_AUTO__Consolidado_total.getRange("A1:C7"), ExcelScript.RangeCopyType.all, false, false);
     // Paste to range A21 on _AUTO__Consolidado_total from range A1:C7 on _AUTO__Consolidado_total
